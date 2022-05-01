@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { ActiveLink } from '.';
 
@@ -24,12 +24,12 @@ describe('ActiveLink component', () => {
   });
   
   it('adds active class if the link as currently active', () => {
-    const { getByText } = render(
+    render(
       <ActiveLink href='/' activeClassName='active'>
         <a>Home</a>
       </ActiveLink>
     )
   
-    expect(getByText('Home')).toHaveClass('active')
+    expect(screen.getByText('Home')).toHaveClass('active')
   });
 });
